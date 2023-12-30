@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Shop</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
+	    <div class="container-fluid">
+	      <a class="navbar-brand" href="/">Pet Shop</a>
+	      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="navbar-toggler-icon"></span>
+	      </button>
+	    
+	      <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+	        <ul class="navbar-nav ms-auto ">
+	          <li class="nav-item">
+	            <a class="nav-link mx-2 active" aria-current="page" href="/">Na stanju</a>
+	          </li>
+	          <li class="nav-item">
+	            <a class="nav-link mx-2" href="#">Dodaj CSV</a>
+	          </li>
+	          <li class="nav-item dropdown">
+	            <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+	              Izvještaji
+	            </a>
+	            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	              <li><a class="dropdown-item" href="/lagerlista">Lager lista</a></li>
+	              <li><a class="dropdown-item" href="#">About Us</a></li>
+	              <li><a class="dropdown-item" href="#">Contact us</a></li>
+	            </ul>
+	          </li>
+	        </ul>
+	      </div>
+	    </div>
+	</nav>
+    <table class="table table-striped container">
+        <h3>Stanje: <%= lista.length  %></h3>
+        <thead>
+            <tr>
+                <% for(let i = 0; i < Object.keys(lista[0]).length; i++){ %>
+                <th><%= Object.keys(lista[0])[i] %></th>
+                <% } %>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let i = 0; i < lista.length; i++){ %>
+            <tr>
+                <%     for(let j = 0; j <  Object.keys(lista[i]).length; j++){ %>
+                <td><%= lista[i][Object.keys(lista[i])[j]] %></td>
+                <%     } %>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>
