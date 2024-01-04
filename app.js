@@ -30,11 +30,11 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 const db = mysql.createConnection({
-    host: 'bazepodataka.ba',
-    user: 'student2361',
-    password: '12602',
-    database: 'student2361',
-    port: 7306
+    host: '',
+    user: '',
+    password: '',
+    database: '',
+    port: 
 });
 
 db.connect((err) => {
