@@ -49,7 +49,7 @@ app.get('/', (req, res) => {
     try{
 
         db.query(
-            `select s_d.ljubimac_id, kl.ime, v.naziv_vrste, kl.podvrsta, skl.slika from stavke_dokumenta as s_d join dokument as d on s_d.dokument_id = d.dokument_id join kucni_ljubimac as kl on s_d.ljubimac_id = kl.ljubimac_id join vrsta_kucnog_ljubimca as v on kl.vrsta_id = v.vrsta_id join slike_kucnog_ljubimca as skl on skl.ljubimac_id = kl.ljubimac_id group by s_d.ljubimac_id, skl.slika having sum(d.vrsta_dokumenta_id) = 1`, (err, result) =>{
+            `select s_d.ljubimac_id, kl.ime, v.naziv_vrste, kl.podvrsta, skl.slika, skl.je_defaultna from stavke_dokumenta as s_d join dokument as d on s_d.dokument_id = d.dokument_id join kucni_ljubimac as kl on s_d.ljubimac_id = kl.ljubimac_id join vrsta_kucnog_ljubimca as v on kl.vrsta_id = v.vrsta_id join slike_kucnog_ljubimca as skl on skl.ljubimac_id = kl.ljubimac_id group by s_d.ljubimac_id, skl.slika, skl.je_defaultna having sum(d.vrsta_dokumenta_id) = 1 and skl.je_defaultna = true`, (err, result) =>{
                 res.render('index', { lista_ljubimaca : result });
             }
         );
@@ -340,10 +340,10 @@ app.post('/dodajcsv', async(req, res) => {
                                                                                                         if(err) console.log(err);
                                                                                                         else console.log('Unio stavke');
                                                                                                         db.query(
-                                                                                                            `insert into slike_kucnog_ljubimca(ljubimac_id,slika,je_defaultna) values(?, ?, true)`, [ljubimac_id, lista[i].photo], (err, res13) => {
+                                                                                                            `insert into slike_kucnog_ljubimca(ljubimac_id,slika,je_defaultna) values(?, ?, true)`, [ljubimac_id, Buffer.from(fs.readFileSync(`./csvslike/${listra[i].photo}.jpg`))], (err, res13) => {
                                                                                                                 if(err) console.log(err);
                                                                                                                 else console.log('Unios slike');
-                                                                                                            }
+                                                                }
                                                                                                         )
                                                                                                     }
                                                                                                 )

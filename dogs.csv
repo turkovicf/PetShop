@@ -1,10 +1,6 @@
 sifra,ime,vrsta,podvrsta,datum_rodjenja,datum_nabavke,drzava,hidden,hasphto,photo,broj_referentnog_dokumenta,dobavljac,cijena
-19534339,MACK,Pas,"Terrier, Pit Bull/Mix",2021-02-25,2023-12-27,BiH,Foster,True,http://www.petango.com/sms/photos/1130/2f575744-95ba-4680-a87e-23030c2a7352_TN1.jpg,2023-115,ABC Firma Neka,499
-20125699,REMY,Pas,"Boxer/Terrier, Pit Bull",2023-02-25,2023-12-27,BiH,Foster,True,http://www.petango.com/sms/photos/1130/776aef3c-5bd0-42ed-96c7-ba130828f116_TN1.jpg,2023-115,ABC Firma Neka,499
-20156213,HENNESSY ,Pas,"Terrier, Pit Bull/Mix",2022-11-27,2023-12-27,BiH,Foster,True,http://www.petango.com/sms/photos/1130/e893bad9-9565-4437-b7f1-d79f84d10f22_TN1.jpg,2023-115,ABC Firma Neka,499
-20315796,LOVELY,Pas,"Terrier, Pit Bull/Hound",2021-10-15,2023-12-27,BiH,Foster,True,http://www.petango.com/sms/photos/1130/e78458ff-3aaa-48b4-abe0-e5814edd38f1_TN1.jpg,2023-115,ABC Firma Neka,499
-20346725,GREGGY ,Pas,"Terrier, Pit Bull/Mix",2023-01-15,2023-12-27,BiH,Foster,True,http://www.petango.com/sms/photos/1130/de0363be-d2e4-4d66-85d8-62cc92aa39d6_TN1.jpg,2023-115,ABC Firma Neka,499
-20346815,DOZER,Pas,"Retriever, Labrador/Mix",2020-03-12,2023-12-27,BiH,Foster,True,http://www.petango.com/sms/photos/1130/cd20db38-23e9-46ee-89c5-67039dc2f473_TN1.jpg,2023-115,ABC Firma Neka,499
-20355571,MEGAN,Pas,"Terrier, Pit Bull/Mix",2023-05-17,2023-12-27,BiH,Foster,True,http://www.petango.com/sms/photos/1130/663c2db8-f27f-46b9-84aa-00b96db85559_TN1.jpg,2023-115,ABC Firma Neka,499
-20530283,GONZO,Pas,Bulldog/Mix,2023-12-23,2023-12-27,BiH,Foster,True,http://www.petango.com/sms/photos/1130/e60b3137-4609-491b-93fc-3c81a11181b2_TN1.jpg,2023-115,ABC Firma Neka,499
-20580860,HARLIE,Pas,"Hound/Retriever, Labrador",2023-10-13,2023-12-27,BiH,Adoption,True,http://www.petango.com/sms/photos/1130/5c9eef5e-b8c6-49d7-bc9c-8b474a932884_TN1.jpg,2023-115,ABC Firma Neka,499
+19534339,MACK,Pas,"Terrier, Pit Bull/Mix",2021-02-25,2023-12-27,BiH,Foster,True,image1,2023-115,ABC Firma Neka,499
+20125699,REMY,Pas,"Boxer/Terrier, Pit Bull",2023-02-25,2023-12-27,BiH,Foster,True,image2,2023-115,ABC Firma Neka,499
+20156213,HENNESSY ,Pas,"Terrier, Pit Bull/Mix",2022-11-27,2023-12-27,BiH,Foster,True,image3,2023-115,ABC Firma Neka,499
+20315796,LOVELY,Pas,"Terrier, Pit Bull/Hound",2021-10-15,2023-12-27,BiH,Foster,True,image4,2023-115,ABC Firma Neka,499
+20346725,GREGGY ,Pas,"Terrier, Pit Bull/Mix",2023-01-15,2023-12-27,BiH,Foster,True,image5,2023-115,ABC Firma Neka,499
