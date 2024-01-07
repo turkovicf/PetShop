@@ -43,7 +43,8 @@
         <% for(let i = 0; i < lista_ljubimaca.length; i++){ %>
         <div class="card col-4 mb-5 d-flex align-items-center justify-content-center">
             <div class="card-header"><%= lista_ljubimaca[i].ljubimac_id %>. <%= lista_ljubimaca[i].ime %></div>
-            <a href="/slike/<%= lista_ljubimaca[i].ljubimac_id %>"><div class="card-body"><img alt="<%= lista_ljubimaca[i].ime  %>" width="200px" height="200px" src="data:image/jpeg;base64, <%= lista_ljubimaca[i].slika.toString('base64') %>"></div></a>
+            <a href="/slike/<%= lista_ljubimaca[i].ljubimac_id %>"><div class="card-body"><img alt="<%= lista_ljubimaca[i].ime  %>" width="200px" height="200px" src="/slikev2/<%= lista_ljubimaca[i].ljubimac_id %>"></div></a>
+			<a href="/slike?id=<%= lista_ljubimaca[i].ljubimac_id %>">Get Slike v2</a>
             <div class="card-footer"><%= lista_ljubimaca[i].naziv_vrste %>, <%= lista_ljubimaca[i].podvrsta %></div>
         </div>
         <% } %>

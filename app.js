@@ -6,6 +6,7 @@ const { error } = require('console');
 const session = require('express-session');
 const fs = require('fs');
 const csv = require('csv-parser');
+require('dotenv').config();
 
 function citajCSV(){
     let rezultat = [];
@@ -30,11 +31,11 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 const db = mysql.createConnection({
-    host: '',
-    user: '',
-    password: '',
-    database: '',
-    port: 
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT
 });
 
 db.connect((err) => {
@@ -47,7 +48,7 @@ db.connect((err) => {
 
 app.get('/', (req, res) => {
     try{
-
+        
         db.query(
             `select s_d.ljubimac_id, kl.ime, v.naziv_vrste, kl.podvrsta, skl.slika, skl.je_defaultna from stavke_dokumenta as s_d join dokument as d on s_d.dokument_id = d.dokument_id join kucni_ljubimac as kl on s_d.ljubimac_id = kl.ljubimac_id join vrsta_kucnog_ljubimca as v on kl.vrsta_id = v.vrsta_id join slike_kucnog_ljubimca as skl on skl.ljubimac_id = kl.ljubimac_id group by s_d.ljubimac_id, skl.slika, skl.je_defaultna having sum(d.vrsta_dokumenta_id) = 1 and skl.je_defaultna = true`, (err, result) =>{
                 res.render('index', { lista_ljubimaca : result });
@@ -67,6 +68,40 @@ app.get('/slike/:id', (req, res) => {
         const upit = db.query(
             `select slika from slike_kucnog_ljubimca where ljubimac_id = ${id}`, (err, result) => {
                 res.render('galerija', { lista_ljubimaca : result });
+            }
+        );
+        
+    }
+    catch(error){
+        console.error(error);
+    }
+});
+
+app.get('/slike', (req, res) => {
+    try{
+        const id = req.query.id;
+        db.query(
+            `select slika from slike_kucnog_ljubimca where ljubimac_id = ?`,[id], (err, result) => {
+                res.render('galerija', { lista_ljubimaca : result });
+            }
+        );
+    }
+    catch(error){
+        console.error(error);
+    }
+});
+
+app.get('/slikev2/:id', (req, res) => {
+    try{
+        const id = req.params.id;
+        db.query(
+            `select slika from slike_kucnog_ljubimca where ljubimac_id = ${id}`, (err, result) => {
+                //console.log(result[0].slika);
+                res.writeHead(200, {
+                    'Content-Type': 'image/png'
+                });
+                console.log('Renderujem sliku', id);
+                res.end(result[0].slika, 'binary');
             }
         );
         
@@ -475,3 +510,8 @@ app.listen(port, (err) => {
 });
 
 module.exports = app;
+
+// 1. dotenv konekcija x
+// 2. galerija slika, napravit komparaciju kako se drukcije moze odraditi x
+// 3. objasniti insert ignore kolegama
+// 4. uporedni izvještaj za dva različita perioda x
